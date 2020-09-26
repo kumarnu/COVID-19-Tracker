@@ -37,7 +37,6 @@ const options = {
           display: false,
         },
         ticks: {
-          //Include a dollar sign in the ticks
           callback: function (value, index, values) {
             return numeral(value).format("0a");
           },
@@ -71,7 +70,6 @@ function LineGraph({ casesType = "cases", ...props }) {
       await fetch("https://disease.sh/v3/covid-19/historical/all?lastdays=120")
         .then((response) => response.json())
         .then((data) => {
-          // console.log(data);
           let chartData = buildChartData(data, "cases");
           console.log(chartData);
 
